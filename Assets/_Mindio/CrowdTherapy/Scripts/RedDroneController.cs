@@ -34,8 +34,12 @@ public class RedDroneController : MonoBehaviour
     //should always be bigger than 1
     public float NpcToPlayerDistance = 4f;
 
+    [SerializeField]
+    public List<RedDroneTexts> RedDroneTexts;
+
     private static RedDroneController _instance;
     public static RedDroneController Instance { get { return _instance; } }
+
 
     void Awake()
     {
@@ -336,5 +340,17 @@ public class RedDroneController : MonoBehaviour
         UI.SetActive(true);
         UIStartPanel.SetActive(false);
         UIEnPanel.SetActive(true);
+    }
+}
+[System.Serializable]
+public class RedDroneTexts
+{
+    public string HelpingText;
+    public bool hasShowned;
+
+    public RedDroneTexts(string text, bool displayed)
+    {
+        this.HelpingText = text;
+        this.hasShowned = displayed;
     }
 }

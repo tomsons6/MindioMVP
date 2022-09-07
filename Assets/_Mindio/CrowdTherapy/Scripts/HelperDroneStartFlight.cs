@@ -110,7 +110,7 @@ public class HelperDroneStartFlight : MonoBehaviour
             }
             if (startFrequenceFInished)
             {
-                DroneController.SetActive(true);
+               DroneController.SetActive(true);
             }
         }
     }

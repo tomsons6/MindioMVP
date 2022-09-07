@@ -1741,6 +1741,17 @@ MonoBehaviour:
   WalkToPlayer: 0
   WaitTimeToGoToPlayer: 10
   NpcToPlayerDistance: 4
+  RedDroneTexts:
+  - HelpingText: qwerty1
+    hasShowned: 0
+  - HelpingText: qwerty2
+    hasShowned: 0
+  - HelpingText: qwerty3
+    hasShowned: 0
+  - HelpingText: qwerty4
+    hasShowned: 0
+  - HelpingText: qwerty5
+    hasShowned: 0
 --- !u!4 &1517202347
 Transform:
   m_ObjectHideFlags: 0
