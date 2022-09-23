@@ -319,10 +319,10 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
-    m_FontSize: 14
+    m_FontSize: 16
     m_FontStyle: 1
     m_BestFit: 0
-    m_MinSize: 10
+    m_MinSize: 1
     m_MaxSize: 40
     m_Alignment: 4
     m_AlignByGeometry: 0
@@ -330,9 +330,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: 'TestText TestText TestText TestText
-
-'
+  m_Text: "Trauksme var izpausties \u013Coti da\u017E\u0101di - no bail\u0113m un
+    uztraukuma l\u012Bdz sirdsklauv\u0113m un vem\u0161anai"
 --- !u!1 &7503767847376498070
 GameObject:
   m_ObjectHideFlags: 0

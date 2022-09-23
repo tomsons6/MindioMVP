@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class MainMenuController : MonoBehaviour
 {
-    public enum MenuId { StartScreen = 0, InfoPanel = 1, EndPanel = 2};
+    public enum MenuId { StartScreen = 0, InfoPanel = 1, EndPanel = 2, VideoPanel = 3};
     public List<PanelId> Panels;
 
     void Start()

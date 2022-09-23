@@ -10,9 +10,16 @@ public class MeditationController : MonoBehaviour
 
     public float BreathIn;
     float CurrentHoldBreahtIn;
+    bool breathInDone;
+
     public float BreathInPause;
+    bool breathinPauseDone;
+
     public float BreathOut;
+    bool breathOutDone;
+
     public float BreathOutPause;
+    bool BreathOutPauseDone;
 
     [SerializeField]
     float startAltitude;
@@ -41,14 +48,12 @@ public class MeditationController : MonoBehaviour
         {
             breathIn();
         }
+        
         if (InputBridge.Instance.LeftTrigger > .7f)
         {
             breathOut();
         }
-        if (InputBridge.Instance.LeftTrigger > .7f && InputBridge.Instance.RightTrigger > .7f)
-        {
-            breathPauseIn();
-        }
+
     }
     public void breathIn()
     {

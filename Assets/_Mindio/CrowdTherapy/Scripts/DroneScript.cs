@@ -68,7 +68,7 @@ public class DroneScript : MonoBehaviour
             CanvasPanel.transform.localScale = CurrentScale;
             yield return null;
         }
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
         while (t1 <= 1f)
         {
             t1 += Time.deltaTime / CanvasOpenSpeed;
