@@ -40,15 +40,21 @@ public class DroneScript : MonoBehaviour
                 Grabbed = true;
                 RedDroneController.Instance.hasSpawned = false;
                 RedDroneController.Instance.SpawnDrone();
-                foreach (RedDroneTexts RDTexts in RedDroneController.Instance.RedDroneTexts)
+                if(RedDroneController.Instance.RedDroneTexts.Any(x => x.hasShowned == false))
                 {
-                    if (!RDTexts.hasShowned)
+                    foreach (RedDroneTexts RDTexts in RedDroneController.Instance.RedDroneTexts)
                     {
-                        StartCoroutine(HelpingText(RDTexts));
-                        break;
+                        if (!RDTexts.hasShowned)
+                        {
+                            StartCoroutine(HelpingText(RDTexts));
+                            break;
+                        }
                     }
                 }
-
+                else
+                {
+                    Destroy(this.transform.parent.gameObject);
+                }
             }
         }
 
