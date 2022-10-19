@@ -20,7 +20,12 @@ public class UILookAt : MonoBehaviour
     void Update()
     {
         //transform.rotation = new Quaternion(0f,Player.rotation.y,0f,0f);
-        transform.position = Player.position + Player.forward + new Vector3(0f,UIHeight,ForawrdDistance);
 
+        transform.position = Player.position + Player.forward * ForawrdDistance;
+        transform.position = new Vector3(transform.position.x, UIHeight, transform.position.z);
+
+
+        transform.rotation = Quaternion.LookRotation(transform.position - Player.position);
+        transform.rotation = new Quaternion(0f, transform.rotation.y, 0f, transform.rotation.w);
     }
 }
