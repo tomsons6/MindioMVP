@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using BNG;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -7,6 +8,7 @@ public class MainMenuController : MonoBehaviour
 {
     public enum MenuId { StartScreen = 0, InfoPanel = 1, EndPanel = 2, VideoPanel = 3};
     public List<PanelId> Panels;
+    public SmoothLocomotion SmoothLoco;
 
     void Start()
     {
@@ -28,6 +30,7 @@ public class MainMenuController : MonoBehaviour
                 Panel.gameObject.SetActive(false);
             }
         }
+        SmoothLoco = FindObjectOfType<SmoothLocomotion>();
     }
     public void setActivePanel(int ID)
     {
@@ -53,5 +56,9 @@ public class MainMenuController : MonoBehaviour
     public void Restart()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void AdjustLocomotionSpeed(float value)
+    {
+        SmoothLoco.MovementSpeed = value;
     }
 }
