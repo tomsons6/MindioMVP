@@ -7,11 +7,15 @@ using UnityEngine.UI;
 public class DroneScript : MonoBehaviour
 {
     [SerializeField]
-    GameObject CanvasPanel;
+    GameObject InfoPanel;
+    [SerializeField]
+    GameObject CountPanel;
     [SerializeField]
     float CanvasOpenSpeed = .2f;
     [SerializeField]
     Text TexTBox;
+    [SerializeField]
+    Text CountTextBox;
 
     bool Grabbed = false;
 
@@ -63,15 +67,22 @@ public class DroneScript : MonoBehaviour
     {
         DroneText.hasShowned = true;
         TexTBox.text = DroneText.HelpingText;
-        Vector3 CanvasStartScale = CanvasPanel.transform.localScale;
-        Vector3 CanvasEndScale = new Vector3(CanvasPanel.transform.localScale.x, 1f, CanvasPanel.transform.localScale.z);
+        int currentCount = ((int)RedDroneController.Instance.CurrentSpawnCount) - 1;
+        CountTextBox.text = currentCount + " no " + RedDroneController.Instance.SpawnCount.ToString();
+        Vector3 CanvasStartScale = InfoPanel.transform.localScale;
+        Vector3 CanvasEndScale = new Vector3(InfoPanel.transform.localScale.x, 1f, InfoPanel.transform.localScale.z);
+        Vector3 CountCanvasStartScale = CountPanel.transform.localScale;
+        Vector3 CountCanvasEndScale = new Vector3(1f, CountPanel.transform.localScale.y, CountPanel.transform.localScale.z);
+
         float t = 0f;
         float t1 = 0f;
         while (t <= 1f)
         {
             t += Time.deltaTime / CanvasOpenSpeed;
             Vector3 CurrentScale = Vector3.Lerp(CanvasStartScale, CanvasEndScale, t);
-            CanvasPanel.transform.localScale = CurrentScale;
+            Vector3 CurrentCountPanelScale = Vector3.Lerp(CountCanvasStartScale, CountCanvasEndScale, t);
+            CountPanel.transform.localScale = CurrentCountPanelScale;
+            InfoPanel.transform.localScale = CurrentScale;
             yield return null;
         }
         yield return new WaitForSeconds(5f);
@@ -79,10 +90,13 @@ public class DroneScript : MonoBehaviour
         {
             t1 += Time.deltaTime / CanvasOpenSpeed;
             Vector3 CurrentScale = Vector3.Lerp(CanvasEndScale, CanvasStartScale, t1);
-            CanvasPanel.transform.localScale = CurrentScale;
+            Vector3 CurrentCountPanelScale = Vector3.Lerp(CountCanvasEndScale, CountCanvasStartScale, t1);
+            InfoPanel.transform.localScale = CurrentScale;
+            CountPanel.transform.localScale = CurrentCountPanelScale;
             yield return null;
         }
         yield return new WaitForSeconds(.5f);
+
         Destroy(this.transform.parent.gameObject);
     }
 }

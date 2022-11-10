@@ -7,7 +7,7 @@ public class RedDroneController : MonoBehaviour
     [SerializeField]
     GameObject DronePrefab;
     [SerializeField]
-    float SpawnCount;
+    public float SpawnCount;
     public float CurrentSpawnCount = 0;
     public float SpawnCounterStep;
     [SerializeField]
